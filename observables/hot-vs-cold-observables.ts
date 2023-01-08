@@ -29,4 +29,9 @@ export function hotVsColdObservables() {
   const sub4 = hotObservable.subscribe({
     next: (x) => console.log('hot sub4: ' + x),
   });
+
+  sub1.unsubscribe();
+  sub2.unsubscribe();
+  sub3.unsubscribe();
+  sub4.unsubscribe();
 }
