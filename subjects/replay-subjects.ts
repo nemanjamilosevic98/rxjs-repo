@@ -7,19 +7,24 @@ export function replaySubjects() {
   subject.next('second message');
 
   // the feature of Replay Subject is that its subscriptions receive the specific number of the last emitted values (in this case it is the last 2 emitted values - 'first message', 'second message') and all other values that were emitted after the creation of this subscription
-  const subscription = subject.subscribe({
-    next: (message) => console.log(message),
+  const sub1 = subject.subscribe({
+    next: (message) => console.log('sub1: ' + message),
     error: (error) => console.log(error),
     complete: () => console.log('Completed'),
   });
 
   subject.next('third message');
   subject.next('fourth message');
-  subscription.unsubscribe();
+  sub1.unsubscribe();
 
   const replaySub = new ReplaySubject(50, 200);
   let i = 0;
-  const interval = setInterval(() => i++, 100);
-
-  setTimeout(() => {}, 500);
+  const interval = setInterval(() => replaySub.next(i++), 100);
+  setTimeout(() => {
+    const sub2 = replaySub.subscribe({
+      next: (x) => console.log('sub2: ' + x),
+    });
+    clearInterval(interval);
+    sub2.unsubscribe();
+  }, 500);
 }
