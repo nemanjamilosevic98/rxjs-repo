@@ -7,6 +7,9 @@ export function observables() {
       observer.next(2);
       observer.complete();
       observer.next(3); // this will not be emitted
+      setTimeout(() => {
+        observer.next(4); // observable can also be async
+      }, 200);
     } catch (err) {
       observer.next(err);
     }
