@@ -18,8 +18,16 @@ export function replaySubjects() {
   sub1.unsubscribe();
 
   const replaySub = new ReplaySubject(50, 200);
+
+  // Replay subject with specific buffered-time
+  // subscription will get last 50 emitted values (or as many as there are, if there are not 50)
+  // 200ms is buffered-time: subscription will get last 50 emitted values, but only those values that were emitted 200ms before its creations
+
   let i = 0;
-  const interval = setInterval(() => replaySub.next(i++), 100);
+  const interval = setInterval(() => {
+    console.log('i=' + i);
+    replaySub.next(i++);
+  }, 100);
   setTimeout(() => {
     const sub2 = replaySub.subscribe({
       next: (x) => console.log('sub2: ' + x),
