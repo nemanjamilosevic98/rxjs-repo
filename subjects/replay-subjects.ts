@@ -16,4 +16,10 @@ export function replaySubjects() {
   subject.next('third message');
   subject.next('fourth message');
   subscription.unsubscribe();
+
+  const replaySub = new ReplaySubject(50, 200);
+  let i = 0;
+  const interval = setInterval(() => i++, 100);
+
+  setTimeout(() => {}, 500);
 }
