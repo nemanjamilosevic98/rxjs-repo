@@ -15,66 +15,58 @@ import { utilityOperators } from './operators/utility/utility-operators';
 import { conditionalAndBooleanOperators } from './operators/conditional-boolean/conditional-boolean-operators';
 import { mathAndAggregOperators } from './operators/mathematical-aggregate/math-aggreg-operators';
 
-const elem = document.getElementById('observables');
-// elem.addEventListener('onclick', showObservables);
+document.getElementById('observables').addEventListener('click', observables);
 
-function showObservables() {
-  alert(1);
-  observables();
-}
+document
+  .getElementById('hotVsColdObservables')
+  .addEventListener('click', hotVsColdObservables);
 
-function showHotVsColdObservables() {
-  hotVsColdObservables();
-}
+document.getElementById('subjects').addEventListener('click', subjects);
 
-function showSubjects() {
-  subjects();
-}
+document
+  .getElementById('behaviorSubjects')
+  .addEventListener('click', behaviorSubjects);
 
-function showBehaviorSubjects() {
-  behaviorSubjects();
-}
+document
+  .getElementById('replaySubjects')
+  .addEventListener('click', replaySubjects);
 
-function showReplaySubjects() {
-  replaySubjects();
-}
+document
+  .getElementById('creationOperators')
+  .addEventListener('click', creationOperators);
 
-function showCreationOperators() {
-  creationOperators();
-}
+document
+  .getElementById('joinCreationOperators')
+  .addEventListener('click', joinCreationOperators);
 
-function showJoinCreationOperators() {
-  joinCreationOperators();
-}
+document
+  .getElementById('transformationOperators')
+  .addEventListener('click', transformatonOperators);
 
-function showTransformationOperators() {
-  transformatonOperators();
-}
+document
+  .getElementById('filteringOperators')
+  .addEventListener('click', filteringOperators);
 
-function showFilteringOperators() {
-  filteringOperators();
-}
+document
+  .getElementById('joinOperators')
+  .addEventListener('click', joinOperators);
 
-function showJoinOperators() {
-  joinOperators();
-}
+document
+  .getElementById('multicastingOperators')
+  .addEventListener('click', multicastingOperators);
 
-function showMulticastingOperators() {
-  multicastingOperators();
-}
+document
+  .getElementById('errorHandlingOperators')
+  .addEventListener('click', errorHandlingOperators);
 
-function showErrorHandlingOperators() {
-  errorHandlingOperators();
-}
+document
+  .getElementById('utilityOperators')
+  .addEventListener('click', utilityOperators);
 
-function showUtilityOperators() {
-  utilityOperators();
-}
+document
+  .getElementById('conditionalAndBooleanOperators')
+  .addEventListener('click', conditionalAndBooleanOperators);
 
-function showConditionalAndBooleanOperators() {
-  conditionalAndBooleanOperators();
-}
-
-function showMathAndAggregOperators() {
-  mathAndAggregOperators();
-}
+document
+  .getElementById('mathAndAggregOperators')
+  .addEventListener('click', mathAndAggregOperators);
