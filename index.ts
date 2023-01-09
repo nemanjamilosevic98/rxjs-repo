@@ -15,47 +15,62 @@ import { utilityOperators } from './operators/utility/utility-operators';
 import { conditionalAndBooleanOperators } from './operators/conditional-boolean/conditional-boolean-operators';
 import { mathAndAggregOperators } from './operators/mathematical-aggregate/math-aggreg-operators';
 
-// Observables
-// observables();
+function showObservables() {
+  observables();
+}
 
-// Hot vs Cold Observables
-// hotVsColdObservables();
+function showHotVsColdObservables() {
+  hotVsColdObservables();
+}
 
-// Subjects
-// subjects();
+function showSubjects() {
+  subjects();
+}
 
-// Behavior Subjects
-// behaviorSubjects();
+function showBehaviorSubjects() {
+  behaviorSubjects();
+}
 
-// Replay Subjects
-// replaySubjects();
+function showReplaySubjects() {
+  replaySubjects();
+}
 
-// Creation Operators
-creationOperators();
+function showCreationOperators() {
+  creationOperators();
+}
 
-// Join-Creation Operators
-// joinCreationOperators();
+function showJoinCreationOperators() {
+  joinCreationOperators();
+}
 
-// Transformation Operators
-// transformatonOperators();
+function showTransformationOperators() {
+  transformatonOperators();
+}
 
-// Filtering Operators
-// filteringOperators();
+function showFilteringOperators() {
+  filteringOperators();
+}
 
-// Join Operators
-// joinOperators();
+function showJoinOperators() {
+  joinOperators();
+}
 
-// Multicasting Operators
-// multicastingOperators();
+function showMulticastingOperators() {
+  multicastingOperators();
+}
 
-// Error-Handling Operators
-// errorHandlingOperators();
+function showErrorHandlingOperators() {
+  errorHandlingOperators();
+}
 
-// Utility Operators
-// utilityOperators();
+function showUtilityOperators() {
+  utilityOperators();
+}
 
-// Conditional-Boolean Operators
-// conditionalAndBooleanOperators();
+function showConditionalAndBooleanOperators() {
+  conditionalAndBooleanOperators();
+}
 
-// Mathematical-Aggregate Operators
-// mathAndAggregOperators();
+function showMathAndAggregOperators() {
+  mathAndAggregOperators();
+}

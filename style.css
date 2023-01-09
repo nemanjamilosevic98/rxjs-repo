@@ -49,3 +49,7 @@ pre {
   padding: 10px;
   color: var(--code-base);
 }
+
+.rxjs-color {
+  color: #c80c8d;
+}
