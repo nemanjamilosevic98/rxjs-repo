@@ -15,7 +15,11 @@ import { utilityOperators } from './operators/utility/utility-operators';
 import { conditionalAndBooleanOperators } from './operators/conditional-boolean/conditional-boolean-operators';
 import { mathAndAggregOperators } from './operators/mathematical-aggregate/math-aggreg-operators';
 
+const elem = document.getElementById('observables');
+// elem.addEventListener('onclick', showObservables);
+
 function showObservables() {
+  alert(1);
   observables();
 }
 
