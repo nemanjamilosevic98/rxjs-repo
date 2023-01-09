@@ -31,7 +31,7 @@ import { mathAndAggregOperators } from './operators/mathematical-aggregate/math-
 // replaySubjects();
 
 // Creation Operators
-// creationOperators();
+creationOperators();
 
 // Join-Creation Operators
 // joinCreationOperators();
