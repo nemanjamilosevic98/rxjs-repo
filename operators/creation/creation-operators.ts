@@ -3,6 +3,7 @@ import {
   fromEvent,
   fromEventPattern,
   generate,
+  iif,
   interval,
   of,
   range,
@@ -36,6 +37,9 @@ export function creationOperators() {
 
   // generate (use it instead of for loop)
   // operatorGenerate();
+
+  // iif (Change at runtime which Observable will be subscribed, depending on condition)
+  // operatorIif();
 }
 
 function operatorOf() {
@@ -94,6 +98,18 @@ function operatorGenerate() {
     condition: (x: number) => x < 5,
     iterate: (x: number) => x + 1,
   }).subscribe((x) => console.log(x));
+}
+
+function operatorIif() {
+  let subscribeToFirst;
+  // atguments: condition, trueResultObservable, falseResultObservable
+  const firstOrSecond = iif(() => subscribeToFirst, of('first'), of('second'));
+
+  subscribeToFirst = true; // first observable will be subscribed
+  firstOrSecond.subscribe((value) => console.log(value));
+
+  subscribeToFirst = false; // second observable will be subscribed
+  firstOrSecond.subscribe((value) => console.log(value));
 }
 
 function changeTemplate() {
