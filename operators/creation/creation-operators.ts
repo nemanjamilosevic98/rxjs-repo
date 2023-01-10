@@ -97,7 +97,7 @@ function operatorGenerate() {
   generate(
     0,
     (x) => x < 5,
-    (x) => x * 2
+    (x) => x + 1
   ).subscribe((x) => console.log(x));
 }
 
