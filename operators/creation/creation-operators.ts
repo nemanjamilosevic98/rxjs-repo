@@ -2,13 +2,22 @@ import {
   from,
   fromEvent,
   fromEventPattern,
+  generate,
   interval,
+  of,
+  range,
   takeUntil,
   timer,
 } from 'rxjs';
 
 export function creationOperators() {
   changeTemplate();
+
+  // of (emits each argument in whole as a separate value)
+  // operatorOf();
+
+  // range (emits a sequence of numbers in a range)
+  // operatorRange();
 
   // from (array -> Observable)
   // operatorFrom();
@@ -19,8 +28,22 @@ export function creationOperators() {
   // fromEventPattern
   // operatorFromEventPattern();
 
+  // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
+  // operatorTimer();
+
   // interval (every x ms emit i++, i=0 initially)
   // operatorInterval();
+
+  // generate (use it instead of for loop)
+  operatorGenerate();
+}
+
+function operatorOf() {
+  of(1, [1, 2, 3], 'Nemanja').subscribe((x) => console.log(x));
+}
+
+function operatorRange() {
+  range(1, 5).subscribe((x) => console.log(x));
 }
 
 function operatorFrom() {
@@ -50,12 +73,8 @@ function operatorFromEventPattern() {
   );
 }
 
-function addClickHandler(handler) {
-  document.addEventListener('click', handler);
-}
-
-function removeClickHandler(handler) {
-  document.removeEventListener('click', handler);
+function operatorTimer() {
+  timer(2000).subscribe((x) => console.log('timer emits:' + x));
 }
 
 function operatorInterval() {
@@ -74,8 +93,24 @@ function operatorInterval() {
   // ----------------------------
 }
 
+function operatorGenerate() {
+  generate(
+    0,
+    (x) => x < 5,
+    (x) => x * 2
+  ).subscribe((x) => console.log(x));
+}
+
 function changeTemplate() {
   const subtitleElem = document.getElementById('subtitle');
   subtitleElem.innerHTML = 'Creation Operators';
   document.getElementById('main-content').style.display = 'none';
+}
+
+function addClickHandler(handler) {
+  document.addEventListener('click', handler);
+}
+
+function removeClickHandler(handler) {
+  document.removeEventListener('click', handler);
 }
