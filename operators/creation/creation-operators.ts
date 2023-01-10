@@ -35,7 +35,7 @@ export function creationOperators() {
   // operatorInterval();
 
   // generate (use it instead of for loop)
-  operatorGenerate();
+  // operatorGenerate();
 }
 
 function operatorOf() {
@@ -47,8 +47,6 @@ function operatorRange() {
 }
 
 function operatorFrom() {
-  // ----------------------------
-  //
   from([
     {
       name: 'Nemanja',
@@ -56,15 +54,12 @@ function operatorFrom() {
     },
     { name: 'Teodora', team: 'zuti' },
   ]).subscribe((x) => console.log(x));
-  // ----------------------------
 }
 
 function operatorFromEvent() {
-  // ----------------------------
   fromEvent(document, 'click')
     .pipe(takeUntil(timer(5000))) // unsubscribe after 5s
     .subscribe((event) => console.log(event));
-  // ----------------------------
 }
 
 function operatorFromEventPattern() {
@@ -94,11 +89,11 @@ function operatorInterval() {
 }
 
 function operatorGenerate() {
-  generate(
-    0,
-    (x) => x < 5,
-    (x) => x + 1
-  ).subscribe((x) => console.log(x));
+  generate({
+    initialState: 0,
+    condition: (x: number) => x < 5,
+    iterate: (x: number) => x + 1,
+  }).subscribe((x) => console.log(x));
 }
 
 function changeTemplate() {
