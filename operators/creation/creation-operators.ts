@@ -43,14 +43,17 @@ export function creationOperators() {
 }
 
 function operatorOf() {
+  // (emits each argument in whole as a separate value)
   of(1, [1, 2, 3], 'Nemanja').subscribe((x) => console.log(x));
 }
 
 function operatorRange() {
+  // (emits a sequence of numbers in a range)
   range(1, 5).subscribe((x) => console.log(x));
 }
 
 function operatorFrom() {
+  // from (array -> Observable)
   from([
     {
       name: 'Nemanja',
@@ -61,6 +64,7 @@ function operatorFrom() {
 }
 
 function operatorFromEvent() {
+  // fromEvent (to listen specific events on target element)
   fromEvent(document, 'click')
     .pipe(takeUntil(timer(5000))) // unsubscribe after 5s
     .subscribe((event) => console.log(event));
@@ -73,10 +77,12 @@ function operatorFromEventPattern() {
 }
 
 function operatorTimer() {
+  // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
   timer(2000).subscribe((x) => console.log('timer emits:' + x));
 }
 
 function operatorInterval() {
+  // interval (every x ms emit i++, i=0 initially)
   // ----------------------------
   // every 500ms emit i++
   const sub1 = interval(500).subscribe((i) => console.log('i=' + i));
@@ -93,6 +99,7 @@ function operatorInterval() {
 }
 
 function operatorGenerate() {
+  // generate (use it instead of for loop)
   generate({
     initialState: 0,
     condition: (x: number) => x < 5,
@@ -101,6 +108,7 @@ function operatorGenerate() {
 }
 
 function operatorIif() {
+  // iif (Change at runtime which Observable will be subscribed, depending on condition)
   let subscribeToFirst;
   // atguments: condition, trueResultObservable, falseResultObservable
   const firstOrSecond = iif(() => subscribeToFirst, of('first'), of('second'));
@@ -112,6 +120,9 @@ function operatorIif() {
   firstOrSecond.subscribe((value) => console.log(value));
 }
 
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
 function changeTemplate() {
   const subtitleElem = document.getElementById('subtitle');
   subtitleElem.innerHTML = 'Creation Operators';
