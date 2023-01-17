@@ -1,4 +1,5 @@
 import {
+  bindCallback,
   catchError,
   from,
   fromEvent,
@@ -48,7 +49,7 @@ export function creationOperators() {
   // operatorAjax();
 
   // bindCallback
-  operatorBindCallback();
+  // operatorBindCallback();
 }
 
 function operatorOf() {
@@ -192,6 +193,16 @@ function operatorAjax() {
   obs4$.subscribe({
     next: (value) => console.log('error: ', value),
     error: (err) => console.log(err),
+  });
+}
+
+function operatorBindCallback() {
+  function sayHello(cb) {
+    cb(1 + 2);
+  }
+  const boundSomeFunction = bindCallback(sayHello);
+  boundSomeFunction().subscribe((v) => {
+    console.log(v);
   });
 }
 
