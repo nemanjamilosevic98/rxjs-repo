@@ -1,6 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
 
 export function behaviorSubjects() {
+  console.log('%c Behavior Subjects:', 'color:#c80c8d');
   const subject = new BehaviorSubject('Initial message');
 
   // the feature of Behavior Subject is that its subscriptions receive the last emitted value (in this case it is the initial value 'Initial message') and all other values that were emitted after the creation of this subscription

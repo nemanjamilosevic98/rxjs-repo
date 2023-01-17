@@ -16,19 +16,19 @@ import {
 import { ajax } from 'rxjs/ajax';
 
 export function operatorOf() {
-  console.log('%c Operator of:', 'color:#c80c8d');
+  console.log('%c Creation Operator of:', 'color:#c80c8d');
   // (emits each argument in whole as a separate value)
   of(1, [1, 2, 3], 'Nemanja').subscribe((x) => console.log(x));
 }
 
 export function operatorRange() {
-  console.log('%c Operator range:', 'color:#c80c8d');
+  console.log('%c Creation Operator range:', 'color:#c80c8d');
   // (emits a sequence of numbers in a range)
   range(1, 5).subscribe((x) => console.log(x));
 }
 
 export function operatorFrom() {
-  console.log('%c Operator from:', 'color:#c80c8d');
+  console.log('%c Creation Operator from:', 'color:#c80c8d');
   // from (array -> Observable)
   from([
     {
@@ -40,7 +40,7 @@ export function operatorFrom() {
 }
 
 export function operatorFromEvent() {
-  console.log('%c Operator fromEvent:', 'color:#c80c8d');
+  console.log('%c Creation Operator fromEvent:', 'color:#c80c8d');
   // fromEvent (to listen specific events on target element)
   fromEvent(document, 'click')
     .pipe(takeUntil(timer(5000))) // unsubscribe after 5s
@@ -48,20 +48,20 @@ export function operatorFromEvent() {
 }
 
 export function operatorFromEventPattern() {
-  console.log('%c Operator fromEventPattern:', 'color:#c80c8d');
+  console.log('%c Creation Operator fromEventPattern:', 'color:#c80c8d');
   fromEventPattern(addClickHandler, removeClickHandler).subscribe((x) =>
     console.log(x)
   );
 }
 
 export function operatorTimer() {
-  console.log('%c Operator timer:', 'color:#c80c8d');
+  console.log('%c Creation Operator timer:', 'color:#c80c8d');
   // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
   timer(2000).subscribe((x) => console.log('timer emits:' + x));
 }
 
 export function operatorInterval() {
-  console.log('%c Operator interval:', 'color:#c80c8d');
+  console.log('%c Creation Operator interval:', 'color:#c80c8d');
   // interval (every x ms emit i++, i=0 initially)
   // ----------------------------
   // every 500ms emit i++
@@ -79,7 +79,7 @@ export function operatorInterval() {
 }
 
 export function operatorGenerate() {
-  console.log('%c Operator generate:', 'color:#c80c8d');
+  console.log('%c Creation Operator generate:', 'color:#c80c8d');
   // generate (use it instead of for loop)
   generate({
     initialState: 0,
@@ -89,7 +89,7 @@ export function operatorGenerate() {
 }
 
 export function operatorIif() {
-  console.log('%c Operator iif:', 'color:#c80c8d');
+  console.log('%c Creation Operator iif:', 'color:#c80c8d');
   // iif (Change at runtime which Observable will be subscribed, depending on condition)
   let subscribeToFirst;
   // atguments: condition, trueResultObservable, falseResultObservable
@@ -103,7 +103,7 @@ export function operatorIif() {
 }
 
 export function operatorAjax() {
-  console.log('%c Operator ajax:', 'color:#c80c8d');
+  console.log('%c Creation Operator ajax:', 'color:#c80c8d');
   // using ajax() to fetch the response object that is being returned from API
   const obs1$ = ajax('https://api.github.com/users?per_page=5').pipe(
     map((userResponse) => userResponse.response),
@@ -170,7 +170,7 @@ export function operatorAjax() {
 }
 
 export function operatorBindCallback() {
-  console.log('%c Operator bindCallback:', 'color:#c80c8d');
+  console.log('%c Creation Operator bindCallback:', 'color:#c80c8d');
   function sayHello(cb) {
     cb(1 + 2);
   }

@@ -1,6 +1,7 @@
 import { Subject } from 'rxjs';
 
 export function subjects() {
+  console.log('%c Subjects:', 'color:#c80c8d');
   const subject = new Subject();
 
   subject.next('first message');

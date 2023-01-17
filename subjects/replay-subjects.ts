@@ -1,6 +1,7 @@
 import { ReplaySubject } from 'rxjs';
 
 export function replaySubjects() {
+  console.log('%c Replay Sunjects:', 'color:#c80c8d');
   const subject = new ReplaySubject(2);
 
   subject.next('first message');
