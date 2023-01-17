@@ -4,7 +4,7 @@ import { hotVsColdObservables } from './observables/hot-vs-cold-observables';
 import { subjects } from './subjects/subjects';
 import { behaviorSubjects } from './subjects/behavior-subjects';
 import { replaySubjects } from './subjects/replay-subjects';
-import { creationOperators } from './operators/creation/creation-operators';
+import * as CreationOperators from './operators/creation/creation-operators';
 import { joinCreationOperators } from './operators/join-creation/join-creation-operators';
 import { transformatonOperators } from './operators/transformation/transformation-operators';
 import { filteringOperators } from './operators/filtering/filtering-operators';
@@ -31,10 +31,41 @@ document
   .getElementById('replaySubjects')
   .addEventListener('click', replaySubjects);
 
+// creation operators
 document
-  .getElementById('creationOperators')
-  .addEventListener('click', creationOperators);
-
+  .getElementById('creation-of')
+  .addEventListener('click', CreationOperators.operatorOf);
+document
+  .getElementById('creation-range')
+  .addEventListener('click', CreationOperators.operatorRange);
+document
+  .getElementById('creation-from')
+  .addEventListener('click', CreationOperators.operatorFrom);
+document
+  .getElementById('creation-fromEvent')
+  .addEventListener('click', CreationOperators.operatorFromEvent);
+document
+  .getElementById('creation-fromEventPattern')
+  .addEventListener('click', CreationOperators.operatorFromEventPattern);
+document
+  .getElementById('creation-timer')
+  .addEventListener('click', CreationOperators.operatorTimer);
+document
+  .getElementById('creation-interval')
+  .addEventListener('click', CreationOperators.operatorInterval);
+document
+  .getElementById('creation-generate')
+  .addEventListener('click', CreationOperators.operatorGenerate);
+document
+  .getElementById('creation-iif')
+  .addEventListener('click', CreationOperators.operatorIif);
+document
+  .getElementById('creation-ajax')
+  .addEventListener('click', CreationOperators.operatorAjax);
+document
+  .getElementById('creation-bindCallback')
+  .addEventListener('click', CreationOperators.operatorBindCallback);
+// join-creation operators
 document
   .getElementById('joinCreationOperators')
   .addEventListener('click', joinCreationOperators);

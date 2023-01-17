@@ -15,54 +15,20 @@ import {
 } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
-export function creationOperators() {
-  changeTemplate();
-
-  // of (emits each argument in whole as a separate value)
-  // operatorOf();
-
-  // range (emits a sequence of numbers in a range)
-  // operatorRange();
-
-  // from (array -> Observable)
-  // operatorFrom();
-
-  // fromEvent (to listen specific events on target element)
-  // operatorFromEvent();
-
-  // fromEventPattern
-  // operatorFromEventPattern();
-
-  // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
-  // operatorTimer();
-
-  // interval (every x ms emit i++, i=0 initially)
-  // operatorInterval();
-
-  // generate (use it instead of for loop)
-  // operatorGenerate();
-
-  // iif (Change at runtime which Observable will be subscribed, depending on condition)
-  // operatorIif();
-
-  // ajax
-  // operatorAjax();
-
-  // bindCallback
-  // operatorBindCallback();
-}
-
-function operatorOf() {
+export function operatorOf() {
+  console.log('%c Operator of:', 'color:#c80c8d');
   // (emits each argument in whole as a separate value)
   of(1, [1, 2, 3], 'Nemanja').subscribe((x) => console.log(x));
 }
 
-function operatorRange() {
+export function operatorRange() {
+  console.log('%c Operator range:', 'color:#c80c8d');
   // (emits a sequence of numbers in a range)
   range(1, 5).subscribe((x) => console.log(x));
 }
 
-function operatorFrom() {
+export function operatorFrom() {
+  console.log('%c Operator from:', 'color:#c80c8d');
   // from (array -> Observable)
   from([
     {
@@ -73,25 +39,29 @@ function operatorFrom() {
   ]).subscribe((x) => console.log(x));
 }
 
-function operatorFromEvent() {
+export function operatorFromEvent() {
+  console.log('%c Operator fromEvent:', 'color:#c80c8d');
   // fromEvent (to listen specific events on target element)
   fromEvent(document, 'click')
     .pipe(takeUntil(timer(5000))) // unsubscribe after 5s
     .subscribe((event) => console.log(event));
 }
 
-function operatorFromEventPattern() {
+export function operatorFromEventPattern() {
+  console.log('%c Operator fromEventPattern:', 'color:#c80c8d');
   fromEventPattern(addClickHandler, removeClickHandler).subscribe((x) =>
     console.log(x)
   );
 }
 
-function operatorTimer() {
+export function operatorTimer() {
+  console.log('%c Operator timer:', 'color:#c80c8d');
   // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
   timer(2000).subscribe((x) => console.log('timer emits:' + x));
 }
 
-function operatorInterval() {
+export function operatorInterval() {
+  console.log('%c Operator interval:', 'color:#c80c8d');
   // interval (every x ms emit i++, i=0 initially)
   // ----------------------------
   // every 500ms emit i++
@@ -108,7 +78,8 @@ function operatorInterval() {
   // ----------------------------
 }
 
-function operatorGenerate() {
+export function operatorGenerate() {
+  console.log('%c Operator generate:', 'color:#c80c8d');
   // generate (use it instead of for loop)
   generate({
     initialState: 0,
@@ -117,7 +88,8 @@ function operatorGenerate() {
   }).subscribe((x) => console.log(x));
 }
 
-function operatorIif() {
+export function operatorIif() {
+  console.log('%c Operator iif:', 'color:#c80c8d');
   // iif (Change at runtime which Observable will be subscribed, depending on condition)
   let subscribeToFirst;
   // atguments: condition, trueResultObservable, falseResultObservable
@@ -130,7 +102,8 @@ function operatorIif() {
   firstOrSecond.subscribe((value) => console.log(value));
 }
 
-function operatorAjax() {
+export function operatorAjax() {
+  console.log('%c Operator ajax:', 'color:#c80c8d');
   // using ajax() to fetch the response object that is being returned from API
   const obs1$ = ajax('https://api.github.com/users?per_page=5').pipe(
     map((userResponse) => userResponse.response),
@@ -196,7 +169,8 @@ function operatorAjax() {
   });
 }
 
-function operatorBindCallback() {
+export function operatorBindCallback() {
+  console.log('%c Operator bindCallback:', 'color:#c80c8d');
   function sayHello(cb) {
     cb(1 + 2);
   }
