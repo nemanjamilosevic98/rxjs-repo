@@ -1,15 +1,18 @@
 import {
+  catchError,
   from,
   fromEvent,
   fromEventPattern,
   generate,
   iif,
   interval,
+  map,
   of,
   range,
   takeUntil,
   timer,
 } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
 
 export function creationOperators() {
   changeTemplate();
@@ -40,6 +43,12 @@ export function creationOperators() {
 
   // iif (Change at runtime which Observable will be subscribed, depending on condition)
   // operatorIif();
+
+  // ajax
+  // operatorAjax();
+
+  // bindCallback
+  operatorBindCallback();
 }
 
 function operatorOf() {
@@ -118,6 +127,72 @@ function operatorIif() {
 
   subscribeToFirst = false; // second observable will be subscribed
   firstOrSecond.subscribe((value) => console.log(value));
+}
+
+function operatorAjax() {
+  // using ajax() to fetch the response object that is being returned from API
+  const obs1$ = ajax('https://api.github.com/users?per_page=5').pipe(
+    map((userResponse) => userResponse.response),
+    catchError((error) => {
+      console.log('error: ', error);
+      return of(error);
+    })
+  );
+
+  obs1$.subscribe({
+    next: (value) => console.log('ajax response1:', value),
+    error: (err) => console.log(err),
+  });
+
+  // using ajax.getJSON() to fetch data from API
+  const obs2$ = ajax.getJSON('https://api.github.com/users?per_page=5').pipe(
+    catchError((error) => {
+      console.log('error: ', error);
+      return of(error);
+    })
+  );
+
+  obs2$.subscribe({
+    next: (value) => console.log('ajax response2:', value),
+    error: (err) => console.log(err),
+  });
+
+  // using ajax() with object as argument and method POST with a two seconds delay
+  const obs3$ = ajax({
+    url: 'https://httpbin.org/delay/2', // 2 sec delay
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'rxjs-custom-header': 'Rxjs',
+    },
+    body: {
+      rxjs: 'Hello World!',
+    },
+  }).pipe(
+    map((fullResponse) => fullResponse.response),
+    catchError((error) => {
+      console.log('error: ', error);
+      return of(error);
+    })
+  );
+
+  // Using ajax() to fetch. An error object that is being returned from the request
+  obs3$.subscribe({
+    next: (value) => console.log('ajax response3: ', value),
+    error: (err) => console.log(err),
+  });
+
+  const obs4$ = ajax('https://api.github.com/404').pipe(
+    map((userResponse) => console.log('users: ', userResponse)),
+    catchError((error) => {
+      return of(error);
+    })
+  );
+
+  obs4$.subscribe({
+    next: (value) => console.log('error: ', value),
+    error: (err) => console.log(err),
+  });
 }
 
 // ------------------------------------------------------------------
