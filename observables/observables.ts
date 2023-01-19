@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 
 export function observables() {
-  console.log('%c Observables:', 'color:#c80c8d');
+  console.log('%c Observables:', 'color:#add929');
   const observable = new Observable((observer: any) => {
     try {
       observer.next(1);

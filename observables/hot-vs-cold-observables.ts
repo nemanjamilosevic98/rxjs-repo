@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 
 export function hotVsColdObservables() {
-  console.log('%c Hot vs. Cold Observables:', 'color:#c80c8d');
+  console.log('%c Hot vs. Cold Observables:', 'color:#add929');
   // Cold observable
   // data is produced inside the Observable
   // both subscriptions will get different values
