@@ -3,7 +3,6 @@ import { timer, combineLatest, takeUntil, map } from 'rxjs';
 export function operatorCombineLatest() {
   console.log('%c Join-Creation Operator combineLatest:', 'color:#add929');
   // Combines multiple Observables to create an Observable whose values are calculated from the latest values of each of its input Observables
-
   const firstTimer = timer(0, 1000); // emit 0, 1, 2... after every second, starting from now
   // emit 0, 1, 2... after every second, starting 0,5s from now
   const secondTimer = timer(500, 1000).pipe(
