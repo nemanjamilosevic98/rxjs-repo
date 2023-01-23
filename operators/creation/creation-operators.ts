@@ -57,7 +57,15 @@ export function operatorFromEventPattern() {
 export function operatorTimer() {
   console.log('%c Creation Operator timer:', 'color:#add929');
   // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
-  timer(2000).subscribe((x) => console.log('timer emits:' + x));
+  timer(2000).subscribe((x) => console.log('timer1 emits:' + x));
+  // emit 0, 1, 2,... after every second, starting from now
+  timer(0, 1000)
+    .pipe(takeUntil(timer(5000)))
+    .subscribe((x) => console.log('timer2 emits:' + x));
+  // emit 0, 1, 2... after every second, starting 0,5s from now
+  timer(500, 1000)
+    .pipe(takeUntil(timer(5000)))
+    .subscribe((x) => console.log('timer3 emits:' + x));
 }
 
 export function operatorInterval() {
