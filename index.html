@@ -46,8 +46,29 @@
         <li>
           <a href="javascript:void(0)" class="rxjs-color" id="creationOperators">Creation Operators</a>
           <ul>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-of">of</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-range">range</a></li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-of">of
+              </a>
+              <div style="display: none" id="creation-of-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Emits each argument in whole as a separate value</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/of.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-range">range</a>
+              <div style="display: none" id="creation-range-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Emits a sequence of numbers in a range</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/range.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
             <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-from">from</a></li>
             <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-fromEvent">fromEvent</a></li>
             <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-fromEventPattern">fromEventPattern</a></li>
@@ -64,9 +85,11 @@
           <ul>
           <li>
             <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-combineLatest">combineLatest</a>
-            <div id="join-creation-combineLatest-description">
-              <p>Description: Combines multiple Observables to create an Observable whose values are calculated from the latest values of each of its input Observables</p>
-              <div>Marble diagram:</div>
+            <div style="display: none" id="join-creation-combineLatest-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Combines multiple Observables to create an Observable whose values are calculated from the latest values of each of its input Observables</p>
+              <div class="rxjs-color3">Marble diagram:</div>
               <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/combineLatest.png"/>
               <div>(an example is in the console)</div>
             </div>
