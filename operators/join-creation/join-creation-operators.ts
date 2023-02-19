@@ -12,7 +12,7 @@ import {
   merge,
   partition,
   race,
-zip,
+  zip,
 } from 'rxjs';
 
 export function operatorCombineLatest() {
@@ -43,6 +43,7 @@ function handleCombineLatestClick() {
 
 export function operatorConcat() {
   if (handleConcatClick()) {
+    // Creates an output Observable which sequentially emits all values from the first given Observable and then moves on to the next
     const timerObs = interval(1000).pipe(take(4));
     const rangeObs = range(500, 5);
     const result = concat(timerObs, rangeObs);
@@ -66,6 +67,7 @@ function handleConcatClick() {
 
 export function operatorForkJoin() {
   if (handleForkJoinClick()) {
+    // Wait for Observables to complete and then combine last values they emitted; complete immediately if an empty array is passe
     const observable = forkJoin({
       foo: of(1, 2, 3, 4),
       bar: Promise.resolve(8),
@@ -94,6 +96,7 @@ function handleForkJoinClick() {
 
 export function operatorMerge() {
   if (handleMergeClick()) {
+    // Flattens multiple Observables together by blending their values into one Observable
     const timer1 = interval(1000).pipe(
       map((x) => 'timer1: ' + x),
       take(10)
@@ -129,6 +132,7 @@ function handleMergeClick() {
 
 export function operatorPartition() {
   if (handlePartitionClick()) {
+    // It's like filter, but returns two Observables: one like the output of filter, and the other with values that did not pass the condition
     const observableValues = of(1, 2, 3, 4, 5, 6);
     const [evens$, odds$] = partition(
       observableValues,
@@ -156,6 +160,7 @@ function handlePartitionClick() {
 
 export function operatorRace() {
   if (handleRaceClick()) {
+    // Race operator returns an observable, that when subscribed to, subscribes to all source observables immediately. As soon as one of the source observables emits a value, the result unsubscribes from the other source
     const obs1 = interval(7000).pipe(
       take(1),
       map(() => 'slow one')
@@ -189,6 +194,7 @@ function handleRaceClick() {
 
 export function operatorZip() {
   if (handleZipClick()) {
+    // Combines multiple Observables to create an Observable whose values are calculated from the values, in order, of each of its input Observables
     const age$ = of(27, 25, 29);
     const name$ = of('Foo', 'Bar', 'Beer');
     const isDev$ = of(true, true, false);
