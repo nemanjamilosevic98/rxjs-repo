@@ -186,7 +186,7 @@
               <div class="rxjs-color3">Description:</div>
               - Combines multiple Observables to create an Observable whose values are calculated from the latest values of each of its input Observables</p>
               <div class="rxjs-color3">Marble diagram:</div>
-              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/combineLatest.png"/>
+              <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/combineLatest.png"/>
               <div>(an example is in the console)</div>
             </div>
           </li>
@@ -197,7 +197,7 @@
               <div class="rxjs-color3">Description:</div>
               - Creates an output Observable which sequentially emits all values from the first given Observable and then moves on to the next</p>
               <div class="rxjs-color3">Marble diagram:</div>
-              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/concat.png"/>
+              <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/concat.png"/>
               <div>(an example is in the console)</div>
             </div>
           </li>
@@ -208,7 +208,7 @@
               <div class="rxjs-color3">Description:</div>
               - Wait for Observables to complete and then combine last values they emitted; complete immediately if an empty array is passed</p>
               <div class="rxjs-color3">Marble diagram:</div>
-              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/forkJoin.png"/>
+              <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/forkJoin.png"/>
               <div>(an example is in the console)</div>
             </div>
           </li>
@@ -219,7 +219,7 @@
               <div class="rxjs-color3">Description:</div>
               - Flattens multiple Observables together by blending their values into one Observable</p>
               <div class="rxjs-color3">Marble diagram:</div>
-              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/merge.png"/>
+              <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/merge.png"/>
               <div>(an example is in the console)</div>
             </div>
           </li>
@@ -230,7 +230,7 @@
               <div class="rxjs-color3">Description:</div>
               - It's like filter, but returns two Observables: one like the output of filter, and the other with values that did not pass the condition</p>
               <div class="rxjs-color3">Marble diagram:</div>
-              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/partition.png"/>
+              <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/partition.png"/>
               <div>(an example is in the console)</div>
             </div>
           </li>
@@ -241,7 +241,7 @@
               <div class="rxjs-color3">Description:</div>
               - Race operator returns an observable, that when subscribed to, subscribes to all source observables immediately. As soon as one of the source observables emits a value, the result unsubscribes from the other sources</p>
               <div class="rxjs-color3">Marble diagram:</div>
-              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/race.png"/>
+              <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/race.png"/>
               <div>(an example is in the console)</div>
             </div>
           </li>
@@ -258,6 +258,66 @@
         </li>
         <li>
           <a href="javascript:void(0)" class="rxjs-color" id="transformationOperators">Transformation Operators</a>
+          <ul>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-buffer">buffer</a>
+              <div style="display: none" id="transformation-buffer-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Collects values from the past as an array, and emits that array only when another Observable emits</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/buffer.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-bufferCount">bufferCount</a>
+              <div style="display: none" id="transformation-bufferCount-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Collects values from the past as an array, and emits that array only when its size reaches bufferSize<br>
+               - first argument is bufferSize: The maximum size of the buffer emitted <br>
+               - second argument is startBufferEvery: Optional. Default is null.
+               Interval at which to start a new buffer. For example if startBufferEvery is 2, then a new buffer will be started on every other value from the source. A new buffer is started at the beginning of the source by default</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/bufferCount.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-bufferTime">bufferTime</a>
+              <div style="display: none" id="transformation-bufferTime-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Collects values from the past as an array, and emits those arrays periodically in time</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/bufferTime.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-bufferToggle">bufferToggle</a>
+              <div style="display: none" id="transformation-bufferToggle-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Collects values from the past as an array. Starts collecting only when opening emits, and calls the closingSelector function to get an Observable that tells when to close the buffer</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/bufferToggle.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-bufferWhen">bufferWhen</a>
+              <div style="display: none" id="transformation-bufferWhen-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Collects values from the past as an array. When it starts collecting values, it calls a function that returns an Observable that tells when to close the buffer and restart collecting</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/bufferWhen.svg"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="javascript:void(0)" class="rxjs-color" id="filteringOperators">Filtering Operators</a>

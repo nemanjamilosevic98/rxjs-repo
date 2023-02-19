@@ -6,7 +6,7 @@ import { behaviorSubjects } from './subjects/behavior-subjects';
 import { replaySubjects } from './subjects/replay-subjects';
 import * as CreationOperators from './operators/creation/creation-operators';
 import * as JoinCreationOperators from './operators/join-creation/join-creation-operators';
-import { transformatonOperators } from './operators/transformation/transformation-operators';
+import * as TransformationOperators from './operators/transformation/transformation-operators';
 import { filteringOperators } from './operators/filtering/filtering-operators';
 import { joinOperators } from './operators/join/join-operators';
 import { multicastingOperators } from './operators/multicasting/multicasting-operators';
@@ -18,20 +18,18 @@ import { mathAndAggregOperators } from './operators/mathematical-aggregate/math-
 addBasicsListeners();
 addCreationOperatorsListeners();
 addJoinCreationOperatorsListeners();
+addTransformationOperatorsListeners();
 
+// basics listeners
 function addBasicsListeners() {
   document.getElementById('observables').addEventListener('click', observables);
-
   document
     .getElementById('hotVsColdObservables')
     .addEventListener('click', hotVsColdObservables);
-
   document.getElementById('subjects').addEventListener('click', subjects);
-
   document
     .getElementById('behaviorSubjects')
     .addEventListener('click', behaviorSubjects);
-
   document
     .getElementById('replaySubjects')
     .addEventListener('click', replaySubjects);
@@ -102,34 +100,20 @@ function addJoinCreationOperatorsListeners() {
     .addEventListener('click', JoinCreationOperators.operatorZip);
 }
 
-document
-  .getElementById('transformationOperators')
-  .addEventListener('click', transformatonOperators);
-
-document
-  .getElementById('filteringOperators')
-  .addEventListener('click', filteringOperators);
-
-document
-  .getElementById('joinOperators')
-  .addEventListener('click', joinOperators);
-
-document
-  .getElementById('multicastingOperators')
-  .addEventListener('click', multicastingOperators);
-
-document
-  .getElementById('errorHandlingOperators')
-  .addEventListener('click', errorHandlingOperators);
-
-document
-  .getElementById('utilityOperators')
-  .addEventListener('click', utilityOperators);
-
-document
-  .getElementById('conditionalAndBooleanOperators')
-  .addEventListener('click', conditionalAndBooleanOperators);
-
-document
-  .getElementById('mathAndAggregOperators')
-  .addEventListener('click', mathAndAggregOperators);
+function addTransformationOperatorsListeners() {
+  document
+    .getElementById('transformation-buffer')
+    .addEventListener('click', TransformationOperators.operatorBuffer);
+  document
+    .getElementById('transformation-bufferCount')
+    .addEventListener('click', TransformationOperators.operatorBufferCount);
+  document
+    .getElementById('transformation-bufferTime')
+    .addEventListener('click', TransformationOperators.operatorBufferTime);
+  document
+    .getElementById('transformation-bufferToggle')
+    .addEventListener('click', TransformationOperators.operatorBufferToggle);
+  document
+    .getElementById('transformation-bufferWhen')
+    .addEventListener('click', TransformationOperators.operatorBufferWhen);
+}
