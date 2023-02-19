@@ -212,10 +212,48 @@
               <div>(an example is in the console)</div>
             </div>
           </li>
-          <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-merge">merge</a></li>
-          <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-partition">partition</a></li>
-          <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-race">race</a></li>
-          <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-zip">zip</a></li>
+          <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-merge">merge</a>
+            <div style="display: none" id="join-creation-merge-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Flattens multiple Observables together by blending their values into one Observable</p>
+              <div class="rxjs-color3">Marble diagram:</div>
+              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/merge.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-partition">partition</a>
+            <div style="display: none" id="join-creation-partition-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - It's like filter, but returns two Observables: one like the output of filter, and the other with values that did not pass the condition</p>
+              <div class="rxjs-color3">Marble diagram:</div>
+              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/partition.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-race">race</a>
+            <div style="display: none" id="join-creation-race-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Race operator returns an observable, that when subscribed to, subscribes to all source observables immediately. As soon as one of the source observables emits a value, the result unsubscribes from the other sources</p>
+              <div class="rxjs-color3">Marble diagram:</div>
+              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/race.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-zip">zip</a>
+            <div style="display: none" id="join-creation-zip-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Combines multiple Observables to create an Observable whose values are calculated from the values, in order, of each of its input Observables</p>
+              <div>(an example is in the console)</div>
+            </div>
+          </li>
           </ul>
         </li>
         <li>

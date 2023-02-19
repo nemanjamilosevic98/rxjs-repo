@@ -8,6 +8,11 @@ import {
   concat,
   forkJoin,
   of,
+  take,
+  merge,
+  partition,
+  race,
+zip,
 } from 'rxjs';
 
 export function operatorCombineLatest() {
@@ -38,7 +43,7 @@ function handleCombineLatestClick() {
 
 export function operatorConcat() {
   if (handleConcatClick()) {
-    const timerObs = interval(1000).pipe(takeUntil(timer(4000)));
+    const timerObs = interval(1000).pipe(take(4));
     const rangeObs = range(500, 5);
     const result = concat(timerObs, rangeObs);
     result.subscribe((x) => console.log(x));
@@ -89,6 +94,22 @@ function handleForkJoinClick() {
 
 export function operatorMerge() {
   if (handleMergeClick()) {
+    const timer1 = interval(1000).pipe(
+      map((x) => 'timer1: ' + x),
+      take(10)
+    );
+    const timer2 = interval(2000).pipe(
+      map((x) => 'timer2: ' + x),
+      take(6)
+    );
+    const timer3 = interval(500).pipe(
+      map((x) => 'timer3: ' + x),
+      take(10)
+    );
+
+    const concurrent = 2; // the argument
+    const merged = merge(timer1, timer2, timer3, concurrent);
+    merged.subscribe((x) => console.log(x));
   }
 }
 
@@ -108,6 +129,14 @@ function handleMergeClick() {
 
 export function operatorPartition() {
   if (handlePartitionClick()) {
+    const observableValues = of(1, 2, 3, 4, 5, 6);
+    const [evens$, odds$] = partition(
+      observableValues,
+      (value) => value % 2 === 0
+    );
+
+    odds$.subscribe((x) => console.log('odds', x));
+    evens$.subscribe((x) => console.log('evens', x));
   }
 }
 
@@ -127,6 +156,20 @@ function handlePartitionClick() {
 
 export function operatorRace() {
   if (handleRaceClick()) {
+    const obs1 = interval(7000).pipe(
+      take(1),
+      map(() => 'slow one')
+    );
+    const obs2 = interval(3000).pipe(
+      take(1),
+      map(() => 'fast one')
+    );
+    const obs3 = interval(5000).pipe(
+      take(1),
+      map(() => 'medium one')
+    );
+
+    race(obs1, obs2, obs3).subscribe((winner) => console.log(winner));
   }
 }
 
@@ -146,6 +189,13 @@ function handleRaceClick() {
 
 export function operatorZip() {
   if (handleZipClick()) {
+    const age$ = of(27, 25, 29);
+    const name$ = of('Foo', 'Bar', 'Beer');
+    const isDev$ = of(true, true, false);
+
+    zip(age$, name$, isDev$)
+      .pipe(map(([age, name, isDev]) => ({ age, name, isDev })))
+      .subscribe((x) => console.log(x));
   }
 }
 
