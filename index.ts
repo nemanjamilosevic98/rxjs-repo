@@ -72,6 +72,9 @@ function addCreationOperatorsListeners() {
   document
     .getElementById('creation-bindCallback')
     .addEventListener('click', CreationOperators.operatorBindCallback);
+  document
+    .getElementById('creation-throwError')
+    .addEventListener('click', CreationOperators.operatorThrowError);
 }
 
 // join-creation operators

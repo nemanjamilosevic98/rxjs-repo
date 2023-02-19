@@ -11,6 +11,7 @@ import {
   of,
   range,
   takeUntil,
+  throwError,
   timer,
 } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
@@ -188,7 +189,7 @@ export function operatorIif() {
   handleIifClick();
   // iif (Change at runtime which Observable will be subscribed, depending on condition)
   let subscribeToFirst;
-  // atguments: condition, trueResultObservable, falseResultObservable
+  // arguments: condition, trueResultObservable, falseResultObservable
   const firstOrSecond = iif(() => subscribeToFirst, of('first'), of('second'));
 
   subscribeToFirst = true; // first observable will be subscribed
@@ -300,6 +301,27 @@ function handleBindCallbackClick() {
   console.log('%c Creation Operator bindCallback:', 'color:#add929');
   const descriptionElem = document.getElementById(
     'creation-bindCallback-description'
+  );
+  if (descriptionElem.style.display === 'none') {
+    descriptionElem.style.display = 'block';
+  } else {
+    descriptionElem.style.display = 'none';
+  }
+}
+
+export function operatorThrowError() {
+  handleThrowErrorClick();
+  const result = throwError(() => new Error(' An error is occurred'));
+  result.subscribe({
+    next: (message) => console.log(message),
+    error: (error) => console.log(error),
+  });
+}
+
+function handleThrowErrorClick() {
+  console.log('%c Creation Operator throwError:', 'color:#add929');
+  const descriptionElem = document.getElementById(
+    'creation-throwError-description'
   );
   if (descriptionElem.style.display === 'none') {
     descriptionElem.style.display = 'block';

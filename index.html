@@ -69,15 +69,111 @@
                 <div>(an example is in the console)</div>
               </div>
             </li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-from">from</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-fromEvent">fromEvent</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-fromEventPattern">fromEventPattern</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-timer">timer</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-interval">interval</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-generate">generate</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-iif">iif</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-ajax">ajax</a></li>
-            <li><a href="javascript:void(0)" class="rxjs-color2" id="creation-bindCallback">bindCallback</a></li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-from">from</a>
+              <div style="display: none" id="creation-from-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Creates an Observable from an Array</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/from.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-fromEvent">fromEvent</a>
+              <div style="display: none" id="creation-fromEvent-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Creates an Observable that emits events of a specific type coming from the given event target</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/fromEvent.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-fromEventPattern">fromEventPattern</a>
+              <div style="display: none" id="creation-fromEventPattern-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Creates an Observable from an arbitrary API for registering event handlers</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/fromEventPattern.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-timer">timer</a>
+              <div style="display: none" id="creation-timer-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Creates an observable that will wait for a specified time period (first argument), or exact date, before emitting the number 0, after that it will emmit next number after every x ms (second argument)</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/timer.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-interval">interval</a>
+              <div style="display: none" id="creation-interval-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Creates an Observable that emits sequential numbers every specified interval of time, on a specified SchedulerLike <br>
+                - every x ms emit i++, i=0 initially</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/interval.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-generate">generate</a>
+              <div style="display: none" id="creation-generate-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Foor loop in RxJs</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/generate.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-iif">iif</a>
+              <div style="display: none" id="creation-iif-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Change at runtime which Observable will be subscribed, depending on condition (arguments: condition, trueResultObservable, falseResultObservable)</p>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-ajax">ajax</a>
+              <div style="display: none" id="creation-ajax-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - It creates an observable for an Ajax request with either a request object with url, headers, etc or a string for a URL</p>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-bindCallback">bindCallback</a>
+              <div style="display: none" id="creation-ajax-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Converts a callback API to a function that returns an Observable</p>
+                <div>(an example is in the console)</div>
+            </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="creation-throwError">throwError</a>
+              <div style="display: none" id="creation-throwError-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Useful for creating an observable that will create an error and error every time it is subscribed to</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px" src="https://rxjs.dev/assets/images/marble-diagrams/throw.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
           </ul>
         </li>
         <li>
