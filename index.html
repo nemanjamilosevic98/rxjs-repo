@@ -156,7 +156,7 @@
             </li>
             <li>
               <a href="javascript:void(0)" class="rxjs-color2" id="creation-bindCallback">bindCallback</a>
-              <div style="display: none" id="creation-ajax-description">
+              <div style="display: none" id="creation-bindCallback-description">
                 <p>
                 <div class="rxjs-color3">Description:</div>
                 - Converts a callback API to a function that returns an Observable</p>
@@ -190,8 +190,28 @@
               <div>(an example is in the console)</div>
             </div>
           </li>
-          <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-concat">concat</a></li>
-          <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-forkJoin">forkJoin</a></li>
+          <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-concat">concat</a>
+            <div style="display: none" id="join-creation-concat-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Creates an output Observable which sequentially emits all values from the first given Observable and then moves on to the next</p>
+              <div class="rxjs-color3">Marble diagram:</div>
+              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/concat.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="join-creation-forkJoin">forkJoin</a>
+            <div style="display: none" id="join-creation-forkJoin-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Wait for Observables to complete and then combine last values they emitted; complete immediately if an empty array is passed</p>
+              <div class="rxjs-color3">Marble diagram:</div>
+              <img style="height: 250px; width: 500pxpx" src="https://rxjs.dev/assets/images/marble-diagrams/forkJoin.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+          </li>
           <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-merge">merge</a></li>
           <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-partition">partition</a></li>
           <li><a href="javascript:void(0)" class="rxjs-color2" id="join-creation-race">race</a></li>
