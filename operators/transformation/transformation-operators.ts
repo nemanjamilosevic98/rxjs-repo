@@ -9,6 +9,13 @@ import {
   bufferToggle,
   EMPTY,
   bufferWhen,
+  concatMap,
+  take,
+  exhaustAll,
+  map,
+  exhaustMap,
+  mergeMap,
+  of,
 } from 'rxjs';
 
 export function operatorBuffer() {
@@ -81,7 +88,90 @@ export function operatorBufferWhen() {
 
 export function operatorConcatMap() {
   if (handleClick('concatMap')) {
-    //
+    // projects each value into an Observable and subscribes to it. The operator is always subscribed to only one inner Observable so if the source Observable emits values faster they're buffered inside concatMap()
+    const clicks = fromEvent(document, 'click');
+    const result = clicks.pipe(
+      takeUntil(timer(3000)),
+      concatMap((ev) => interval(1000).pipe(take(3)))
+    );
+    result.subscribe((x) => console.log(x));
+  }
+}
+
+export function operatorExhaustAll() {
+  if (handleClick('exhaustAll')) {
+    // Flattens an Observable-of-Observables by dropping the next inner Observables while the current inner is still executing
+    const clicks = fromEvent(document, 'click');
+    const higherOrder = clicks.pipe(
+      takeUntil(timer(3000)),
+      map(() => interval(1000).pipe(take(5)))
+    );
+    const result = higherOrder.pipe(exhaustAll());
+    result.subscribe((x) => console.log(x));
+  }
+}
+
+export function operatorExhaustMap() {
+  if (handleClick('exhaustMap')) {
+    // Projects each source value to an Observable which is merged in the output Observable only if the previous projected Observable has completed
+    const clicks = fromEvent(document, 'click');
+    const result = clicks.pipe(
+      takeUntil(timer(3000)),
+      exhaustMap(() => interval(1000).pipe(take(5)))
+    );
+    result.subscribe((x) => console.log(x));
+  }
+}
+
+export function operatorMap() {
+  if (handleClick('map')) {
+    // Like Array.prototype.map(), it passes each source value through a transformation function to get corresponding output values
+    const clicks = fromEvent<PointerEvent>(document, 'click');
+    const positions = clicks.pipe(
+      takeUntil(timer(3000)),
+      map((ev) => ev.clientX)
+    );
+    positions.subscribe((x) => console.log(x));
+  }
+}
+
+export function operatorPluck() {
+  if (handleClick('pluck')) {
+    // Maps each source value to its specified nested property
+    const clicks = fromEvent(document, 'click');
+    // Deprecation note: Use map and optional chaining: pluck('foo', 'bar') is map(x => x?.foo?.bar)
+    // const tagNames = clicks.pipe(pluck('target', 'tagName'));
+    const tagNames = clicks.pipe(
+      takeUntil(timer(5000)),
+      map((x: any) => x?.target?.tagName)
+    );
+
+    tagNames.subscribe((x) => console.log(x));
+  }
+}
+
+export function operatorMergeMap() {
+  if (handleClick('mergeMap')) {
+    // Maps each value to an Observable, then flattens all of these inner Observables using mergeAll.
+    const letters = of('a', 'b', 'c');
+    const result = letters.pipe(
+      mergeMap((x) =>
+        interval(1000).pipe(
+          take(4),
+          map((i) => x + i)
+        )
+      )
+    );
+
+    result.subscribe((x) => console.log(x));
+    // Results in the following:
+    // a0
+    // b0
+    // c0
+    // a1
+    // b1
+    // c1
+    // continues to list a, b, c every second with respective ascending integers
   }
 }
 

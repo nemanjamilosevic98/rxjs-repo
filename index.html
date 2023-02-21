@@ -317,6 +317,74 @@
                 <div>(an example is in the console)</div>
               </div>
             </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-concatMap">concatMap</a>
+              <div style="display: none" id="transformation-concatMap-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Projects each value into an Observable and subscribes to it. The operator is always subscribed to only one inner Observable so if the source Observable emits values faster they're buffered inside concatMap()</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/concatMap.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-exhaustAll">exhaustAll</a>
+              <div style="display: none" id="transformation-exhaustAll-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Flattens an Observable-of-Observables by dropping the next inner Observables while the current inner is still executing<br>
+                - Converts a higher-order Observable into a first-order Observable by dropping inner Observables while the previous inner Observable has not yet completed</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/exhaust.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-exhaustMap">exhaustMap</a>
+              <div style="display: none" id="transformation-exhaustMap-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Projects each source value to an Observable which is merged in the output Observable only if the previous projected Observable has completed</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/exhaust.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-map">map</a>
+              <div style="display: none" id="transformation-map-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Like Array.prototype.map(), it passes each source value through a transformation function to get corresponding output values</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/map.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-pluck">pluck</a>
+              <div style="display: none" id="transformation-pluck-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Maps each source value to its specified nested property</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/pluck.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void(0)" class="rxjs-color2" id="transformation-mergeMap">mergeMap</a>
+              <div style="display: none" id="transformation-mergeMap-description">
+                <p>
+                <div class="rxjs-color3">Description:</div>
+                - Projects each source value to an Observable which is merged in the output Observable<br>
+               - Maps each value to an Observable, then flattens all of these inner Observables using mergeAll</p>
+                <div class="rxjs-color3">Marble diagram:</div>
+                <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/mergeMap.png"/>
+                <div>(an example is in the console)</div>
+              </div>
+            </li>
           </ul>
         </li>
         <li>

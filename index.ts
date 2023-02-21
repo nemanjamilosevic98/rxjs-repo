@@ -116,6 +116,24 @@ function addTransformationOperatorsListeners() {
   document
     .getElementById('transformation-bufferWhen')
     .addEventListener('click', TransformationOperators.operatorBufferWhen);
+  document
+    .getElementById('transformation-concatMap')
+    .addEventListener('click', TransformationOperators.operatorConcatMap);
+  document
+    .getElementById('transformation-exhaustAll')
+    .addEventListener('click', TransformationOperators.operatorExhaustAll);
+  document
+    .getElementById('transformation-exhaustMap')
+    .addEventListener('click', TransformationOperators.operatorExhaustMap);
+  document
+    .getElementById('transformation-map')
+    .addEventListener('click', TransformationOperators.operatorMap);
+  document
+    .getElementById('transformation-pluck')
+    .addEventListener('click', TransformationOperators.operatorPluck);
+  document
+    .getElementById('transformation-mergeMap')
+    .addEventListener('click', TransformationOperators.operatorMergeMap);
 }
 
 // multicasting operators
