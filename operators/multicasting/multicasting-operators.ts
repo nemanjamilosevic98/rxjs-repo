@@ -1,7 +1,7 @@
 import { interval, tap, map, take, share } from 'rxjs';
 
 export function operatorShare() {
-  if (handleShareClick()) {
+  if (handleClick('share')) {
     // Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream hot. This is an alias for multicast(() => new Subject()), refCount()
 
     // Generate new multicast Observable from the source Observable value
@@ -17,12 +17,19 @@ export function operatorShare() {
   }
 }
 
-function handleShareClick() {
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+
+function handleClick(operatorName) {
   const descriptionElem = document.getElementById(
-    'multicasting-share-description'
+    'multicasting-' + operatorName + '-description'
   );
   if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator share:', 'color:#add929');
+    console.log(
+      '%c Multicasting Operator ' + operatorName + ':',
+      'color:#add929'
+    );
     descriptionElem.style.display = 'block';
     return true;
   } else {

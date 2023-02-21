@@ -18,45 +18,21 @@ import {
 import { ajax } from 'rxjs/ajax';
 
 export function operatorOf() {
-  if (handleOfClick()) {
+  if (handleClick('of')) {
     // (emits each argument in whole as a separate value)
     of(1, [1, 2, 3], 'Nemanja').subscribe((x) => console.log(x));
   }
 }
 
-function handleOfClick() {
-  const descriptionElem = document.getElementById('creation-of-description');
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator of:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorRange() {
-  if (handleRangeClick()) {
+  if (handleClick('range')) {
     // (emits a sequence of numbers in a range)
     range(1, 5).subscribe((x) => console.log(x));
   }
 }
 
-function handleRangeClick() {
-  const descriptionElem = document.getElementById('creation-range-description');
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator range:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorFrom() {
-  if (handleFromClick()) {
+  if (handleClick('from')) {
     // from (array -> Observable)
     from([
       {
@@ -68,20 +44,8 @@ export function operatorFrom() {
   }
 }
 
-function handleFromClick() {
-  const descriptionElem = document.getElementById('creation-from-description');
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator from:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorFromEvent() {
-  if (handleFromEventClick()) {
+  if (handleClick('fromEvent')) {
     // fromEvent (to listen specific events on target element)
     fromEvent(document, 'click')
       .pipe(first()) // unsubscribe after 5s
@@ -89,44 +53,16 @@ export function operatorFromEvent() {
   }
 }
 
-function handleFromEventClick() {
-  const descriptionElem = document.getElementById(
-    'creation-fromEvent-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator fromEvent:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorFromEventPattern() {
-  if (handleFromEventPatternClick()) {
+  if (handleClick('fromEventPattern')) {
     fromEventPattern(addClickHandler, removeClickHandler)
       .pipe(first())
       .subscribe((x) => console.log(x));
   }
 }
 
-function handleFromEventPatternClick() {
-  const descriptionElem = document.getElementById(
-    'creation-fromEventPattern-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator fromEventPattern:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorTimer() {
-  if (handleTimerClick()) {
+  if (handleClick('timer')) {
     // timer (creates an observable that will wait for a specified time period, before emitting the number 0)
     timer(2000).subscribe((x) => console.log('timer1 emits:' + x));
     // emit 0, 1, 2,... after every second, starting from now
@@ -140,20 +76,8 @@ export function operatorTimer() {
   }
 }
 
-function handleTimerClick() {
-  const descriptionElem = document.getElementById('creation-timer-description');
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator timer:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorInterval() {
-  if (handleIntervalClick()) {
+  if (handleClick('interval')) {
     // interval (every x ms emit i++, i=0 initially)
     // ----------------------------
     // every 500ms emit i++
@@ -171,22 +95,8 @@ export function operatorInterval() {
   }
 }
 
-function handleIntervalClick() {
-  const descriptionElem = document.getElementById(
-    'creation-interval-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator interval:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorGenerate() {
-  if (handleGenerateClick()) {
+  if (handleClick('generate')) {
     // generate (use it instead of for loop)
     generate({
       initialState: 0,
@@ -196,22 +106,8 @@ export function operatorGenerate() {
   }
 }
 
-function handleGenerateClick() {
-  const descriptionElem = document.getElementById(
-    'creation-generate-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator generate:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorIif() {
-  if (handleIifClick()) {
+  if (handleClick('iif')) {
     // iif (Change at runtime which Observable will be subscribed, depending on condition)
     let subscribeToFirst;
     // arguments: condition, trueResultObservable, falseResultObservable
@@ -229,20 +125,8 @@ export function operatorIif() {
   }
 }
 
-function handleIifClick() {
-  const descriptionElem = document.getElementById('creation-iif-description');
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator iif:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorAjax() {
-  if (handleAjaxClick()) {
+  if (handleClick('ajax')) {
     // using ajax() to fetch the response object that is being returned from API
     const obs1$ = ajax('https://api.github.com/users?per_page=5').pipe(
       map((userResponse) => userResponse.response),
@@ -309,20 +193,8 @@ export function operatorAjax() {
   }
 }
 
-function handleAjaxClick() {
-  const descriptionElem = document.getElementById('creation-ajax-description');
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator ajax:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorBindCallback() {
-  if (handleBindCallbackClick()) {
+  if (handleClick('bindCallback')) {
     function sayHello(cb) {
       cb(1 + 2);
     }
@@ -333,22 +205,8 @@ export function operatorBindCallback() {
   }
 }
 
-function handleBindCallbackClick() {
-  const descriptionElem = document.getElementById(
-    'creation-bindCallback-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator bindCallback:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorThrowError() {
-  if (handleThrowErrorClick()) {
+  if (handleClick('throwError')) {
     const result = throwError(() => new Error(' An error is occurred'));
     result.subscribe({
       next: (message) => console.log(message),
@@ -357,12 +215,16 @@ export function operatorThrowError() {
   }
 }
 
-function handleThrowErrorClick() {
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+
+function handleClick(operatorName) {
   const descriptionElem = document.getElementById(
-    'creation-throwError-description'
+    'creation-' + operatorName + '-description'
   );
   if (descriptionElem.style.display === 'none') {
-    console.log('%c Creation Operator throwError:', 'color:#add929');
+    console.log('%c Creation Operator ' + operatorName + ':', 'color:#add929');
     descriptionElem.style.display = 'block';
     return true;
   } else {
@@ -370,10 +232,6 @@ function handleThrowErrorClick() {
   }
   return false;
 }
-
-// ------------------------------------------------------------------
-// ------------------------------------------------------------------
-// ------------------------------------------------------------------
 
 function addClickHandler(handler) {
   document.addEventListener('click', handler);

@@ -16,7 +16,7 @@ import {
 } from 'rxjs';
 
 export function operatorCombineLatest() {
-  if (handleCombineLatestClick()) {
+  if (handleClick('combineLatest')) {
     // Combines multiple Observables to create an Observable whose values are calculated from the latest values of each of its input Observables
     const firstTimer = timer(0, 1000); // emit 0, 1, 2... after every second, starting from now
     // emit 0, 1, 2... after every second, starting 0,5s from now
@@ -27,22 +27,8 @@ export function operatorCombineLatest() {
   }
 }
 
-function handleCombineLatestClick() {
-  const descriptionElem = document.getElementById(
-    'join-creation-combineLatest-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator combineLatest:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorConcat() {
-  if (handleConcatClick()) {
+  if (handleClick('concat')) {
     // Creates an output Observable which sequentially emits all values from the first given Observable and then moves on to the next
     const timerObs = interval(1000).pipe(take(4));
     const rangeObs = range(500, 5);
@@ -51,22 +37,8 @@ export function operatorConcat() {
   }
 }
 
-function handleConcatClick() {
-  const descriptionElem = document.getElementById(
-    'join-creation-concat-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator concat:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorForkJoin() {
-  if (handleForkJoinClick()) {
+  if (handleClick('forkJoin')) {
     // Wait for Observables to complete and then combine last values they emitted; complete immediately if an empty array is passe
     const observable = forkJoin({
       foo: of(1, 2, 3, 4),
@@ -80,22 +52,8 @@ export function operatorForkJoin() {
   }
 }
 
-function handleForkJoinClick() {
-  const descriptionElem = document.getElementById(
-    'join-creation-forkJoin-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator forkJoin:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorMerge() {
-  if (handleMergeClick()) {
+  if (handleClick('merge')) {
     // Flattens multiple Observables together by blending their values into one Observable
     const timer1 = interval(1000).pipe(
       map((x) => 'timer1: ' + x),
@@ -116,22 +74,8 @@ export function operatorMerge() {
   }
 }
 
-function handleMergeClick() {
-  const descriptionElem = document.getElementById(
-    'join-creation-merge-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator merge:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorPartition() {
-  if (handlePartitionClick()) {
+  if (handleClick('partition')) {
     // It's like filter, but returns two Observables: one like the output of filter, and the other with values that did not pass the condition
     const observableValues = of(1, 2, 3, 4, 5, 6);
     const [evens$, odds$] = partition(
@@ -144,22 +88,8 @@ export function operatorPartition() {
   }
 }
 
-function handlePartitionClick() {
-  const descriptionElem = document.getElementById(
-    'join-creation-partition-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator partition:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorRace() {
-  if (handleRaceClick()) {
+  if (handleClick('race')) {
     // Race operator returns an observable, that when subscribed to, subscribes to all source observables immediately. As soon as one of the source observables emits a value, the result unsubscribes from the other source
     const obs1 = interval(7000).pipe(
       take(1),
@@ -178,22 +108,8 @@ export function operatorRace() {
   }
 }
 
-function handleRaceClick() {
-  const descriptionElem = document.getElementById(
-    'join-creation-race-description'
-  );
-  if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator race:', 'color:#add929');
-    descriptionElem.style.display = 'block';
-    return true;
-  } else {
-    descriptionElem.style.display = 'none';
-  }
-  return false;
-}
-
 export function operatorZip() {
-  if (handleZipClick()) {
+  if (handleClick('zip')) {
     // Combines multiple Observables to create an Observable whose values are calculated from the values, in order, of each of its input Observables
     const age$ = of(27, 25, 29);
     const name$ = of('Foo', 'Bar', 'Beer');
@@ -205,12 +121,19 @@ export function operatorZip() {
   }
 }
 
-function handleZipClick() {
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+
+function handleClick(operatorName) {
   const descriptionElem = document.getElementById(
-    'join-creation-zip-description'
+    'join-creation-' + operatorName + '-description'
   );
   if (descriptionElem.style.display === 'none') {
-    console.log('%c Join-Creation Operator zip:', 'color:#add929');
+    console.log(
+      '%c Join-Creation Operator ' + operatorName + ':',
+      'color:#add929'
+    );
     descriptionElem.style.display = 'block';
     return true;
   } else {
