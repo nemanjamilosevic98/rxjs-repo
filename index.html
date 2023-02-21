@@ -327,6 +327,19 @@
         </li>
         <li>
           <a href="javascript:void(0)" class="rxjs-color" id="multicastingOperators">Multicasting Operators</a>
+          <ul>
+            <li>
+            <a href="javascript:void(0)" class="rxjs-color2" id="multicasting-share">share</a>
+            <div style="display: none" id="multicasting-share-description">
+              <p>
+              <div class="rxjs-color3">Description:</div>
+              - Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream hot. This is an alias for multicast(() => new Subject()), refCount()</p>
+              <div class="rxjs-color3">Marble diagram:</div>
+              <img style="height: 250px; width: 500px; background-color: white" src="https://rxjs.dev/assets/images/marble-diagrams/share.png"/>
+              <div>(an example is in the console)</div>
+            </div>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="javascript:void(0)" class="rxjs-color" id="errorHandlingOperators">Error-Handling Operators</a>

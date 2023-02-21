@@ -7,18 +7,17 @@ import { replaySubjects } from './subjects/replay-subjects';
 import * as CreationOperators from './operators/creation/creation-operators';
 import * as JoinCreationOperators from './operators/join-creation/join-creation-operators';
 import * as TransformationOperators from './operators/transformation/transformation-operators';
-import { filteringOperators } from './operators/filtering/filtering-operators';
-import { joinOperators } from './operators/join/join-operators';
-import { multicastingOperators } from './operators/multicasting/multicasting-operators';
-import { errorHandlingOperators } from './operators/error-handling/error-handling-operators';
-import { utilityOperators } from './operators/utility/utility-operators';
-import { conditionalAndBooleanOperators } from './operators/conditional-boolean/conditional-boolean-operators';
-import { mathAndAggregOperators } from './operators/mathematical-aggregate/math-aggreg-operators';
+import * as MulticastingOperators from './operators/multicasting/multicasting-operators';
 
-addBasicsListeners();
-addCreationOperatorsListeners();
-addJoinCreationOperatorsListeners();
-addTransformationOperatorsListeners();
+init();
+
+function init() {
+  addBasicsListeners();
+  addCreationOperatorsListeners();
+  addJoinCreationOperatorsListeners();
+  addTransformationOperatorsListeners();
+  addMulticastingOperatorsListeners();
+}
 
 // basics listeners
 function addBasicsListeners() {
@@ -100,6 +99,7 @@ function addJoinCreationOperatorsListeners() {
     .addEventListener('click', JoinCreationOperators.operatorZip);
 }
 
+// transformation operators
 function addTransformationOperatorsListeners() {
   document
     .getElementById('transformation-buffer')
@@ -116,4 +116,11 @@ function addTransformationOperatorsListeners() {
   document
     .getElementById('transformation-bufferWhen')
     .addEventListener('click', TransformationOperators.operatorBufferWhen);
+}
+
+// multicasting operators
+function addMulticastingOperatorsListeners() {
+  document
+    .getElementById('multicasting-share')
+    .addEventListener('click', MulticastingOperators.operatorShare);
 }
